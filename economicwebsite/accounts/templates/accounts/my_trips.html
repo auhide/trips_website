@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+{% load static %}
+
+{% block content %}
+
+	<div align="center">
+
+		{% for trip in trips %}
+			<div id="tripcontainer">
+				<div class="pin1"></div>
+				<br>
+				<br>
+				<p id="triptext"><strong>Country</strong>: {{ trip.country|title }}</p>
+				<p id="triptext"><strong>Trip</strong>: {{ trip.town_1|title }} - {{ trip.town_2|title }}</p>
+				<p id="triptext"><strong>Costs</strong>: {{ trip.money }}€</p>
+				<p id="triptext"><strong>Time</strong>: {{ trip.time }}</p>
+				<p id="triptext"><strong>Distance</strong>: {{ trip.distance }}km</p>
+				<form action="{% url 'accounts:delete_trip' trip.id %}" method="POST">
+					{% csrf_token %}
+					<button class="garbagebtn"><i class="fa fa-close"></i></button>
+				</form>
+				<p id="tripdate">{{ trip.date }}</p>
+			</div>
+
+		{% empty %}
+			<h3>Your list of trips is empty!</h3>
+			<h5>Go to the CREATE A TRIP tab if you feel adventurous!</h5>
+		{% endfor %}
+
+		<!-- Pagination -->
+		{% if is_paginated %}
+			<div class="pagination">
+				<span class="page-links">
+					<span class="page-current">
+						<p class="info">{% if page_obj.has_previous %}<a class="btn btn-outline-dark" href="/account/my_trips?page={{ page_obj.previous_page_number }}"><<</a>{% endif %}
+						 <strong>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+							{% if page_obj.has_next %}</strong><a class="btn btn-outline-dark" href="/account/my_trips?page={{ page_obj.next_page_number }}">>></a>{% endif %}</p>
+					</span>
+				</span>
+			</div>
+		{% endif %}			
+	</div>
+	
+{% endblock content %}

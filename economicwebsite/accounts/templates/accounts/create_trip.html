@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+	
+	<div align="center">
+		<h1 class="display-4">Create a Trip</h1>
+
+		<p class="info">You can see how to correctly create a trip on the <strong>HOME</strong> page.</p>
+
+		<form action="" method="POST">
+			{% csrf_token %}
+			{% bootstrap_form form %}
+			<button type="submit" class="btn btn-outline-secondary btn-lg">Create</button>
+		</form>
+	</div>
+	
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n avatar_tags %}
+
+{% block content %}
+    <div align="center">
+        {% avatar user 100 class="img-oval img-responsive" %}
+        {% if not avatars %}
+            <p>{% trans "You haven't uploaded an avatar yet. Please upload one now." %}</p>
+        {% else %}
+        {% endif %}
+        <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
+            {{ upload_avatar_form.as_p }}
+            <p>{% csrf_token %}<button type="submit" class="btn btn-outline-dark">Upload New Avatar</button></p>
+        </form>
+    </div>
+{% endblock %}

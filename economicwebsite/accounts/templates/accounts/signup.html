@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block page_title %}Signup{% endblock page_title %}
+
+{% block content %}
+	
+	<div class='container'>
+		<h1 class='display-3 page_header' align='center'>Sign Up</h1>
+		<br>
+		<form method="POST">
+			{% csrf_token %}
+			<div align='center'>
+				{% bootstrap_form form %}
+			</div>	
+			<div align='center'>
+				<button type="submit" class="btn btn-outline-secondary btn-lg">Sign Up</button>
+			</div>
+		</form>
+	</div>
+	
+{% endblock content %}	

@@ -1,0 +1,314 @@
+
+body{
+	background-color: white;
+}
+
+.pagination {
+   justify-content: center;
+}
+
+.info{
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.infotext ul{
+  display: inline-block;
+  text-align:left;
+}
+
+li{
+  list-style-type: none;
+}
+
+
+#tripdate{
+  margin-top: -10px;
+  margin-left: 220px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 15px;
+}
+
+.garbagebtn {
+    background-color: white;
+    border: none;
+    color: blue;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* Darker background on mouse-over */
+.garbagebtn:hover {
+    background-color: rgb(191, 191, 191);
+}
+
+#triptext {
+  font-size: 16px;
+  font-family: 'Titillium Web', sans-serif;
+  text-align: left;
+  vertical-align: middle;
+  line-height: 5px; 
+  margin-top: 0px;
+  margin-bottom: 15px;
+  margin-left: 100px;
+}
+ 
+
+#tripcontainer {
+ /*stitching*/
+   outline: 1px dashed black;
+   outline-offset: -5px;
+   
+   background: linear-gradient(45deg, rgb(0, 88, 242) 0%, white 100%);
+   height: 240px;
+   width: 400px;
+   margin: 20px auto;
+ 
+ /*shadow*/
+   -webkit-box-shadow: 2px 2px 2px #000;
+   -moz-box-shadow: 2px 2px 2px #000;
+   box-shadow: 2px 2px 2px #000;
+}
+
+.text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    opacity: 0.5;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+hr.menu {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border: 0; 
+  height: 1px; 
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); 
+}
+
+.page_header{
+  color: black;
+}
+
+.text{
+  color: black;
+}
+
+#logo{
+  margin-right: 95px;
+  margin-top: 5px;
+}
+
+.img-circle{
+  margin-top: 10px;
+  margin-right: 10px;   
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img-oval{
+  border-radius: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.focus {
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+.focus:hover {
+  border: 2.5px solid white;
+  border-radius: 50%;
+}
+
+.upload_img{
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+input[type=file]{
+  font-size: 12px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+
+/* Input Field Width */
+.form-group{
+  width: 400px;
+}
+
+/* Centering the navbar options */
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.jumbotron{
+	background-color: white;
+  padding: 5em inherit;
+}
+
+
+/* Deleting all the label texts */
+label {
+    display: none;
+}
+
+/* New cool Navbar */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+#cssmenu {
+  background: white;
+  width: auto;
+}
+#cssmenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: block;
+  zoom: 1;
+}
+#cssmenu ul:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#cssmenu ul li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+#cssmenu.align-right ul li {
+  float: right;
+}
+#cssmenu.align-center ul {
+  text-align: center;
+}
+#cssmenu ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 15px 25px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: relative;
+  -webkit-transition: color .25s;
+  -moz-transition: color .25s;
+  -ms-transition: color .25s;
+  -o-transition: color .25s;
+  transition: color .25s;
+}
+
+#cssmenu ul li a:hover {
+  color: black;
+}
+#cssmenu ul li a:hover:before {
+  width: 100%;
+}
+#cssmenu ul li a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -3px;
+  top: 19px;
+  height: 6px;
+  width: 6px;
+  background: #ffffff;
+  opacity: .5;
+}
+#cssmenu ul li a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: black;
+  -webkit-transition: width .25s;
+  -moz-transition: width .25s;
+  -ms-transition: width .25s;
+  -o-transition: width .25s;
+  transition: width .25s;
+}
+#cssmenu ul li.last > a:after,
+#cssmenu ul li:last-child > a:after {
+  display: none;
+}
+#cssmenu ul li.active a {
+  color: black;
+}
+#cssmenu ul li.active a:before {
+  width: 100%;
+}
+#cssmenu.align-right li.last > a:after,
+#cssmenu.align-right li:last-child > a:after {
+  display: block;
+}
+#cssmenu.align-right li:first-child a:after {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  #cssmenu ul li {
+    float: none;
+    display: block;
+  }
+  #cssmenu ul li a {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+  }
+  #cssmenu ul li.last > a,
+  #cssmenu ul li:last-child > a {
+    border: 0;
+  }
+  #cssmenu ul li a:after {
+    display: none;
+  }
+  #cssmenu ul li a:before {
+    display: none;
+  }
+}
+
+/* A PIN */
+.pin1 {
+  position: relative;
+  top: 40%;
+  left: 40%;
+  margin-right: 500px;
+  margin-left: -100px;
+
+  border-radius: 50% 50% 50% 0;
+  border: 4px solid white;
+  width: 30px;
+  height: 30px;
+  transform: rotate(-45deg);
+}
+
+.pin1::after {
+  position: absolute;
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -5px;
+  background-color: white;
+}

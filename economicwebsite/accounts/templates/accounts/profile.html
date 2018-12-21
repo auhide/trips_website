@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load avatar_tags %}
+
+{% block page_title %}Profile{% endblock page_title %}
+
+{% block content %}
+	
+	<div align='center'>{% avatar user 100 class="img-oval img-responsive" %}</div>
+	<h1 class='display-4 page_header' align='center'>{{ user.username }}</h1>
+	<p class='info' align='center'>Email: {{ user.email }}</p>
+	<br>
+	<div align='center'><a class="btn btn-outline-dark" href="{% url 'avatar_change' %}">Change avatar</a></div>
+
+	<br>
+	<div align="center">
+
+	</div>
+
+{% endblock content %}
