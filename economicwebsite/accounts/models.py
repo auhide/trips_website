@@ -92,10 +92,10 @@ class Trip(models.Model):
             raise ValidationError("A country with the name of {} does not exist in our data set!".format(self.country))
         
         if not city_in_country(self.country, self.town_1):
-            raise ValidationError("{} does not exist/is not in that country!".format(self.town_1))
+            raise ValidationError("{} does not exist/is not in {}!".format(self.town_1, self.country))
         
         if not city_in_country(self.country, self.town_2):
-            raise ValidationError("{} does not exist/is not in that country!".format(self.town_2))
+            raise ValidationError("{} does not exist/is not in {}!".format(self.town_2, self.country))
         
         if self.town_1 == self.town_2:
             raise ValidationError("The towns have to be different!")

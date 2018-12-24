@@ -4,8 +4,14 @@ from .models import User, Trip
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
+from django.core.validators import RegexValidator
+
+# A validation for the username, because the default validation accepts all unicode characters.
+alphanumeric = RegexValidator(r'^[0-9a-zA-Z_]*$', 'Only English alphabetic characters, underscores and/or numbers are allowed.')
 
 class UserCreateForm(UserCreationForm):
+
+    username = forms.CharField(min_length=5, validators=[alphanumeric])
 
     class Meta:
         model = User

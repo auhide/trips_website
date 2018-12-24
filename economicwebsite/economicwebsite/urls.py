@@ -28,4 +28,5 @@ urlpatterns = [
     path('account/', include('accounts.urls'), name=None),
     path('accounts/', include('django.contrib.auth.urls')),
     path('avatar/', include('avatar.urls')),
+    path('lazy_tags/', include('lazy_tags.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
