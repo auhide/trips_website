@@ -105,9 +105,16 @@ hr.menu {
 
 .img-circle{
   margin-top: 10px;
-  margin-right: 10px;   
+  margin-bottom: -65px;
+  margin-left: 1250px;   
   border-radius: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 1000px){
+    .img-circle{
+        transform-origin: 50%;
+    }
 }
 
 .img-oval{
@@ -163,7 +170,7 @@ label {
 }
 
 /* New cool Navbar */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
 #cssmenu {
   background: white;
   width: auto;
@@ -261,7 +268,9 @@ label {
 #cssmenu.align-right li:first-child a:after {
   display: none;
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 500px) {
+
   #cssmenu ul li {
     float: none;
     display: block;
@@ -283,7 +292,160 @@ label {
   #cssmenu ul li a:before {
     display: none;
   }
+
 }
+*/
+
+/* NAVBAR STYLING */
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+header { width: 100%; margin-top: -20px;}
+
+.nav-bar { display: none; }
+
+header nav {
+  background: #3498db;
+  z-index: 1000;
+  width: 100%;
+  margin: auto;
+}
+
+header nav ul { list-style: none; margin-left: 20px;}
+
+header nav ul li {
+  float: left;
+  position: relative;
+}
+
+header nav:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header nav ul li a {
+  color: black;
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+header nav ul li:hover { background: white; }
+
+header nav ul li:hover i { color: #3498db; }
+
+header nav ul li i { margin-right: 10px; }
+
+header nav ul li:hover .children { display: block; }
+
+header nav ul li .children {
+  display: none;
+  background: #8e44ad;
+  position: absolute;
+  width: 150%;
+  z-index: 1000;
+}
+
+header nav ul li .children span { display: none; }
+
+header nav ul li .children li {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #ffffff99;
+}
+
+header nav ul li .children li a { margin-left: 30px; }
+
+header nav ul li .fa-angle-down {
+  position: relative;
+  top: 3px;
+}
+
+/*responsive nav style*/
+
+@media all and (max-width: 800px) {
+
+  body { padding-top: 80px; }
+
+  .nav-bar {
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #3498db;
+  }
+
+  .nav-bar span {
+    float: left;
+    font-size: 20px;
+    padding: 20px;
+    color: #fff;
+  }
+
+  .nav-bar .fa-bars {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    float: right;
+  }
+
+  header nav {
+    width: 80%;
+    height: auto;
+    position: fixed;
+    right: 100%;
+    top : 63px;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  header nav ul li {
+    display: block;
+    border-bottom: 1px solid white;
+    width: 100%;
+  }
+
+  header ul li a { display: block; }
+
+  header nav ul li .children {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: none;
+  }
+
+  header nav ul li:hover .children { display: none; }
+
+  header nav ul li ul li:first-child { border-top: 1px solid #ffffff99; }
+
+  header nav ul li .children span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  header nav ul li .children a {
+    margin-left: 10px;
+    padding: 5px 0;
+  }
+
+  header nav ul li .fa-angle-down {
+    position: relative;
+    top: 3px;
+  }
+}
+
+
 
 /* A PIN */
 .pin1 {
@@ -312,3 +474,8 @@ label {
   margin-top: -5px;
   background-color: white;
 }
+
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+ }

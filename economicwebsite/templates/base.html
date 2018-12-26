@@ -5,120 +5,147 @@
 
 <html>
 <head>
-	<title>{% block page_title %}{% endblock page_title %}</title>
+    <title>{% block page_title %}{% endblock page_title %}</title>
 
-	<!--Bootstrap CSS-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-	<!--Bootstrap jQuery-->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--Bootstrap jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-	<!--Bootstrap JS-->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-	<!-- STATIC FILES -->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/master.css' %}">
-	<script type="text/javascript" src="{% static 'js/master_js.js' %}"></script>
+    <!-- STATIC FILES -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/master.css' %}">
+    <script type="text/javascript" src="{% static 'js/master_js.js' %}"></script>
 
-	<!-- Icon library -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<!-- Small text font -->
-	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> 
-	
-	<!-- MAP STUFF -->
-	<script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
-	  type="text/javascript" charset="utf-8"></script>
-	<script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
-	  type="text/javascript" charset="utf-8"></script>	
+    <!-- Small text font -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> 
 
-	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
 
+    <!-- MATERIALIZE NAVBAR -->
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+    <!-- Compiled and minified JavaScript -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 </head>
 <body>
 
 
-	<!-- NAVBAR V1 -->
-	<!-- <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-	  <a class="navbar-brand" href="{% url 'home' %}">Site Name</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-	    <div class="navbar-nav">
-	      <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-	      {% if user.is_authenticated %}
-	      	<a class="nav-item nav-link" href="{% url 'accounts:logout' %}">Logout</a>
-	      {% else %}
-	      	<a class="nav-item nav-link" href="{% url 'accounts:login' %}">Login</a>
-	      	<a class="nav-item nav-link" href="{% url 'accounts:signup' %}">Sign Up</a>
-	      {% endif %}
-	    </div>
-	  </div>
-	</nav> -->
+    <!-- NAVBAR V1 -->
+    <!-- <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" href="{% url 'home' %}">Site Name</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+          {% if user.is_authenticated %}
+            <a class="nav-item nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+          {% else %}
+            <a class="nav-item nav-link" href="{% url 'accounts:login' %}">Login</a>
+            <a class="nav-item nav-link" href="{% url 'accounts:signup' %}">Sign Up</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav> -->
 
 
-	<!-- NAVBAR V2 -->
-	<!-- <nav class="navbar navbar-dark navbar-expand-lg">
-	  <a class="navbar-brand" href="{% url 'home' %}">Website Name</a>
-	    <ul class="navbar-nav navbar-center">
-	      <li class="nav-item ">
-	        <a class="nav-link" href="{% url 'home' %}">Home</a>
-	      </li>
-	      {% if user.is_authenticated %}
-		    <li class="nav-item">
-		     	<a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
-		    </li>
-		  {% else %}
-		  	<li class="nav-item">
-	        	<a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
-	      	</li>
-	      	<li class="nav-item">
-	        	<a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a>
-	      	</li>
-	      {% endif %}
-	    </ul>
-	</nav> -->
+    <!-- NAVBAR V2 -->
+    <!-- <nav class="navbar navbar-dark navbar-expand-lg">
+      <a class="navbar-brand" href="{% url 'home' %}">Website Name</a>
+        <ul class="navbar-nav navbar-center">
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a>
+            </li>
+          {% endif %}
+        </ul>
+    </nav> -->
 
-	<!-- NAVBAR V3 -->
-	<div class='row'>
-			<div class='col-8'><h1 align='right' class='text' id='logo'>Website Logo</h1></div>
-			{% if user.is_authenticated %}
-				<div align='right' class='col-4'><a href="{% url 'accounts:profile' user.username %}">{% avatar user 50 class="img-circle img-responsive focus pic" %}</a></div>
-			{% endif %}
+    <!-- NAVBAR V3 -->
+    <!-- <div class='row'>
+            <div class='col-8'><h1 align='right' class='text' id='logo'>Website Logo</h1></div>
+            {% if user.is_authenticated %}
+                <div align='right' class='col-4'><a href="{% url 'accounts:profile' user.username %}">{% avatar user 50 class="img-circle img-responsive focus pic" %}</a></div>
+            {% endif %}
 
-	</div>
+    </div> -->
 
-	<hr class="menu">
-	
-	<div id="cssmenu">
-		<ul>
-			<div align='center' class="topnav">
-			   	<li {% if request.path == '/' %} class="active"{% endif %} ><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
-			   	{% if user.is_authenticated %}
-			   		<li {% if "/account/create_trip/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:create_trip' %}"><i class="fa fa-car"></i> Create A Trip</a></li>
-			   		<li {% if "/account/my_trips/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:my_trips' %}"><i class="fa fa-list-alt"></i> My Trips</a></li>
-			   		<li {% if "/account/profile/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:profile' user.username %}"><i class="fa fa-user"></i>  {{ user.username }}</a></li>
-			   		<li><a href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
-			   	{% else %}
-				   	<li {% if request.path == "/account/login/" %} class="active"{% endif %} ><a href="{% url 'accounts:login' %}"><i class="fa fa-arrow-right"></i> Login</a></li>
-				   	<li {% if request.path == "/account/signup/" %} class="active last"{% endif %} class="last"><a href="{% url 'accounts:signup' %}"><i class="fa fa-pencil"></i> Sign Up</a></li>
-				{% endif %}
-			</div>
-		</ul>
-	</div>
-	</div>	
+    <!-- <hr class="menu"> -->
+    
+    <!-- <div id="cssmenu">
+        <ul>
+            <div align='center'>
+                <li {% if request.path == '/' %} class="active"{% endif %} ><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
+                {% if user.is_authenticated %}
+                    <li {% if "/account/create_trip/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:create_trip' %}"><i class="fa fa-car"></i> Create A Trip</a></li>
+                    <li {% if "/account/my_trips/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:my_trips' %}"><i class="fa fa-list-alt"></i> My Trips</a></li>
+                    <li {% if "/account/profile/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:profile' user.username %}"><i class="fa fa-user"></i>  {{ user.username }}</a></li>
+                    <li><a href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                {% else %}
+                    <li {% if request.path == "/account/login/" %} class="active"{% endif %} ><a href="{% url 'accounts:login' %}"><i class="fa fa-arrow-right"></i> Login</a></li>
+                    <li {% if request.path == "/account/signup/" %} class="active last"{% endif %} class="last"><a href="{% url 'accounts:signup' %}"><i class="fa fa-pencil"></i> Sign Up</a></li>
+                {% endif %}
+            </div>
+        </ul>
+    </div> -->
 
-	<hr class="menu">
+    <header>
+        <!-- responsive nav bar -->
+        <div class="nav-bar">
+            <a href=""><i class="fa fa-bars"></i><span class="info">MENU</span></a>
+        </div>
+        <!-- navigation -->
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    <div><a href="{% url 'accounts:profile' user.username %}">{% avatar user 50 class="img-circle img-responsive focus pic" %}</a></div>
+                {% endif %}
+                <li {% if request.path == '/' %} class="active"{% endif %} ><a href="{% url 'home' %}"><i class="fa fa-home"></i> <strong>HOME</strong></a></li>
+                {% if user.is_authenticated %}
+                    <li {% if "/account/create_trip/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:create_trip' %}"><i class="fa fa-car"></i> <strong>CREATE A TRIP</strong></a></li>
+                    <li {% if "/account/my_trips/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:my_trips' %}"><i class="fa fa-list-alt"></i> <strong>MY TRIPS</strong></a></li>
+                    <li {% if "/account/profile/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:profile' user.username %}"><i class="fa fa-user"></i>  <strong>{{ user.username|upper }}</strong></a></li>
+                    <li><a href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out"></i> <strong>LOGOUT</strong></a></li>
+                {% else %}
+                    <li {% if request.path == "/account/login/" %} class="active"{% endif %} ><a href="{% url 'accounts:login' %}"><i class="fa fa-arrow-right"></i> <strong>LOGIN</strong></a></li>
+                    <li {% if request.path == "/account/signup/" %} class="active last"{% endif %} class="last"><a href="{% url 'accounts:signup' %}"><i class="fa fa-pencil"></i> <strong>SIGN UP</strong></a></li>
+                {% endif %}
+            </ul>
+        </nav> <!-- navigation end -->
+        
+    </header> <!-- header end -->
 
-	<!-- CONTENT -->
-	<div class='jumbotron jumbotron-fluid'>
-		<div class='container-fluid'>
-			{% block content %}
-				
-			{% endblock content %}
-		</div>
-	</div>
+    <!-- <hr class="menu"> -->
+
+    <!-- CONTENT -->
+    <div class='jumbotron jumbotron-fluid'>
+        <div class='container-fluid'>
+            {% block content %}
+                
+            {% endblock content %}
+        </div>
+    </div>
 
 </body>
 </html>
