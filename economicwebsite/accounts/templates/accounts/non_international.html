@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+	<h4 align="center" class="display-3">Create a trip</h4>
+	<br>
+	<div align="center"><small class="info">This form is not case sensitive</small></div>
+	<div align="center">
+		<form action="" method="POST">
+			{% csrf_token %}
+			{% bootstrap_form non_international %}
+			<button type="submit" class="btn btn-outline-primary btn-lg">Create</button>
+		</form>
+	</div>	
+	
+{% endblock content %}

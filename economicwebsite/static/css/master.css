@@ -1,13 +1,30 @@
+/* Colors: 
+    BLUE-ish -   #002635  
+    WHITE-ish -  #EFE7BE
+    RED-ish -    #AB1A25
+    ORANGE-ish - #D97925
+*/
+
 
 body{
-	background-color: white;
+	background-color: #EFE7BE;
+}
+
+/* FOR THE MY TRIPS ACCORDION */
+.card-header {
+    background-color: #EFE7BE;
+}
+
+.card-body{
+  background-color: #EFE7BE;
+}
 }
 
 .pagination {
    justify-content: center;
 }
 
-.info{
+.info, .lead .infotext{
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -20,56 +37,41 @@ li{
   list-style-type: none;
 }
 
-
-#tripdate{
-  margin-top: -10px;
-  margin-left: 220px;
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 15px;
+/* garbage button */
+.delbtn{
+  display: inline-block;
+  text-decoration: none;
+  margin: 0;
+  color: #002635;
+  width: 30px;
+  height: 30px;
+  line-height: 12px;
+  border-radius: 50%;
+  border: solid 2px #002635;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  transition: .4s;
+  cursor: pointer;
+  background: #EFE7BE;
 }
 
-.garbagebtn {
-    background-color: white;
-    border: none;
-    color: blue;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 50%;
-    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-/* Darker background on mouse-over */
-.garbagebtn:hover {
-    background-color: rgb(191, 191, 191);
+.delbtn:hover {
+    background: #AB1A25;
 }
 
 #triptext {
-  font-size: 16px;
+  font-size: 15px;
   font-family: 'Titillium Web', sans-serif;
   text-align: left;
   vertical-align: middle;
-  line-height: 5px; 
-  margin-top: 0px;
-  margin-bottom: 15px;
-  margin-left: 100px;
+  line-height: 1px; 
+  margin-top: -35px;
+  margin-bottom: -10px;
+  margin-left: 1px;
 }
  
-
-#tripcontainer {
- /*stitching*/
-   outline: 1px dashed black;
-   outline-offset: -5px;
-   
-   background: linear-gradient(45deg, rgb(0, 88, 242) 0%, white 100%);
-   height: 240px;
-   width: 400px;
-   margin: 20px auto;
- 
- /*shadow*/
-   -webkit-box-shadow: 2px 2px 2px #000;
-   -moz-box-shadow: 2px 2px 2px #000;
-   box-shadow: 2px 2px 2px #000;
-}
 
 .text-block {
     position: absolute;
@@ -82,16 +84,17 @@ li{
     padding-right: 20px;
 }
 
+
 hr.menu {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 15px;
+  margin-bottom: -1px;
   border: 0; 
   height: 1px; 
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); 
 }
 
 .page_header{
-  color: black;
+  color: #002635;
 }
 
 .text{
@@ -105,8 +108,8 @@ hr.menu {
 
 .img-circle{
   margin-top: 10px;
-  margin-bottom: -65px;
-  margin-left: 1250px;   
+  margin-bottom: -100px;
+  margin-left: 1150px;   
   border-radius: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -159,7 +162,7 @@ input[type=file]{
 }
 
 .jumbotron{
-	background-color: white;
+	background-color: #EFE7BE;
   padding: 5em inherit;
 }
 
@@ -169,132 +172,7 @@ label {
     display: none;
 }
 
-/* New cool Navbar */
-/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
-#cssmenu {
-  background: white;
-  width: auto;
-}
-#cssmenu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  display: block;
-  zoom: 1;
-}
-#cssmenu ul:after {
-  content: " ";
-  display: block;
-  font-size: 0;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-#cssmenu ul li {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-#cssmenu.align-right ul li {
-  float: right;
-}
-#cssmenu.align-center ul {
-  text-align: center;
-}
-#cssmenu ul li a {
-  color: black;
-  text-decoration: none;
-  display: block;
-  padding: 15px 25px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 14px;
-  position: relative;
-  -webkit-transition: color .25s;
-  -moz-transition: color .25s;
-  -ms-transition: color .25s;
-  -o-transition: color .25s;
-  transition: color .25s;
-}
 
-#cssmenu ul li a:hover {
-  color: black;
-}
-#cssmenu ul li a:hover:before {
-  width: 100%;
-}
-#cssmenu ul li a:after {
-  content: "";
-  display: block;
-  position: absolute;
-  right: -3px;
-  top: 19px;
-  height: 6px;
-  width: 6px;
-  background: #ffffff;
-  opacity: .5;
-}
-#cssmenu ul li a:before {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 0;
-  background: black;
-  -webkit-transition: width .25s;
-  -moz-transition: width .25s;
-  -ms-transition: width .25s;
-  -o-transition: width .25s;
-  transition: width .25s;
-}
-#cssmenu ul li.last > a:after,
-#cssmenu ul li:last-child > a:after {
-  display: none;
-}
-#cssmenu ul li.active a {
-  color: black;
-}
-#cssmenu ul li.active a:before {
-  width: 100%;
-}
-#cssmenu.align-right li.last > a:after,
-#cssmenu.align-right li:last-child > a:after {
-  display: block;
-}
-#cssmenu.align-right li:first-child a:after {
-  display: none;
-}
-
-@media screen and (max-width: 500px) {
-
-  #cssmenu ul li {
-    float: none;
-    display: block;
-  }
-  #cssmenu ul li a {
-    width: 100%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-bottom: 1px solid black;
-  }
-  #cssmenu ul li.last > a,
-  #cssmenu ul li:last-child > a {
-    border: 0;
-  }
-  #cssmenu ul li a:after {
-    display: none;
-  }
-  #cssmenu ul li a:before {
-    display: none;
-  }
-
-}
-*/
 
 /* NAVBAR STYLING */
 * {
@@ -304,18 +182,18 @@ label {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-header { width: 100%; margin-top: -20px;}
+header { width: 100%; margin-top: -10px;}
 
 .nav-bar { display: none; }
 
 header nav {
-  background: #3498db;
+  background: #002635;
   z-index: 1000;
   width: 100%;
   margin: auto;
 }
 
-header nav ul { list-style: none; margin-left: 20px;}
+header nav ul { list-style: none; margin-left: 120px;}
 
 header nav ul li {
   float: left;
@@ -329,7 +207,7 @@ header nav:after {
 }
 
 header nav ul li a {
-  color: black;
+  color: #AB1A25;
   display: block;
   padding: 20px;
   text-decoration: none;
@@ -337,9 +215,9 @@ header nav ul li a {
   font-family: 'Titillium Web', sans-serif;
 }
 
-header nav ul li:hover { background: white; }
+header nav ul li:hover { background: #EFE7BE; }
 
-header nav ul li:hover i { color: #3498db; }
+header nav ul li:hover i { color: #AB1A25; }
 
 header nav ul li i { margin-right: 10px; }
 
@@ -379,20 +257,20 @@ header nav ul li .fa-angle-down {
     width: 100%;
     position: fixed;
     top: 0;
-    background: #3498db;
+    background: #002635;
   }
 
   .nav-bar span {
     float: left;
     font-size: 20px;
     padding: 20px;
-    color: #fff;
+    color: #EFE7BE;
   }
 
   .nav-bar .fa-bars {
     display: block;
     padding: 20px;
-    color: #fff;
+    color: #EFE7BE;
     overflow: hidden;
     font-size: 20px;
     font-weight: bold;
@@ -412,11 +290,11 @@ header nav ul li .fa-angle-down {
 
   header nav ul li {
     display: block;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #EFE7BE;
     width: 100%;
   }
 
-  header ul li a { display: block; }
+  header ul li a { display: block;}
 
   header nav ul li .children {
     width: 100%;
@@ -449,14 +327,16 @@ header nav ul li .fa-angle-down {
 
 /* A PIN */
 .pin1 {
-  position: relative;
+  position: center;
   top: 40%;
   left: 40%;
-  margin-right: 500px;
-  margin-left: -100px;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: -10px;
+  margin-bottom: 50px;
 
   border-radius: 50% 50% 50% 0;
-  border: 4px solid white;
+  border: 4px solid #002635;
   width: 30px;
   height: 30px;
   transform: rotate(-45deg);
@@ -472,10 +352,226 @@ header nav ul li .fa-angle-down {
   left: 50%;
   margin-left: -5px;
   margin-top: -5px;
-  background-color: white;
+  background-color: #002635;
 }
 
 a:hover, a:focus, a:active {
   text-decoration: none;
-  color: inherit;
+  color: #AB1A25;
  }
+
+
+.active{
+  background: #EFE7BE;
+}
+
+
+
+/* COOL CREATE TRIP BUTTONS */
+.altbtn {
+  left: 100px;
+  border-radius: 4px;
+  border: 2px solid #EFE7BE;
+  color: #002635;
+  display: inline-block;
+  margin: 0 6.5em;
+  overflow: hidden;
+  padding: 14px 60px 24px 16px;
+  position: relative;
+  text-decoration: none;
+  line-height: 1;
+}
+.altbtn .altbtn-content {
+  font-size: 1em;
+  line-height: 1.2;
+  padding: 0 26px;
+  position: relative;
+  right: 0;
+  transition: right 300ms ease;
+  display: block;
+  text-align: left;
+}
+.altbtn .icon {
+  border-left: 1px solid #002635;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 50%;
+  transition: all 300ms ease;
+  transform: translateY(-50%);
+  width: 58px;
+  height: 70%;
+}
+.altbtn .icon i {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.altbtn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #002635;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.altbtn:hover .altbtn-content {
+  right: 100%;
+}
+.altbtn:hover .icon {
+  border-left: 0;
+  font-size: 1.8em;
+  width: 100%;
+}
+.altbtn:hover:after {
+  opacity: 0.2;
+}
+.altbtn.altbtn-alt-color {
+  border-color: salmon;
+  color: salmon;
+}
+.altbtn.altbtn-alt-color .icon {
+  border-left-color: salmon;
+}
+.altbtn.altbtn-alt-color:after {
+  background-color: salmon;
+}
+
+
+/* Triplate Button */
+.triplate {
+  border-radius: 5px;
+  border: 1px solid #002635;
+  color: #002635;
+  display: inline-block;
+  margin: 0 6.5em;
+  overflow: hidden;
+  padding: 20px 0px 0px 0px;
+  position: relative;
+  text-decoration: none;
+  line-height: 1;
+}
+.triplate .triplate-content {
+  font-size: 1em;
+  line-height: 1.2;
+  padding: 0 60px 50px;
+  position: relative;
+  right: 0;
+  transition: right 300ms ease;
+  display: block;
+  text-align: left;
+}
+
+.triplate .icon {
+  border-left: 1px solid #002635;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 50%;
+  transition: all 300ms ease;
+  transform: translateY(-50%);
+  width: 58px;
+  height: 70%;
+}
+.triplate .icon i {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.triplate:after {
+  content: normal;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #D97925;
+  opacity: 0;
+  transition: opacity 300ms ease;
+} 
+.triplate:hover .icon {
+  border-left: 0;
+  font-size: 1.8em;
+  width: 100%;
+}
+.triplate:hover:after {
+  opacity: 0.2;
+}
+.triplate.triplate-alt-color {
+  border-color: salmon;
+  color: salmon;
+}
+.triplate.triplate-alt-color .icon {
+  border-left-color: salmon;
+}
+.triplate.triplate-alt-color:after {
+  background-color: salmon;
+}
+
+
+/* EDITING THE NEW COLOR SCHEME OF THE FORMS*/
+.form-control {
+  background-color: #EFE7BE;
+}
+
+.form-control::-webkit-input-placeholder { color: #002635; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: #002635; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: #002635; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: #002635; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: #002635; }  /* Microsoft Edge */
+
+.form-control{
+  border-color: #002635;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: #D97925;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+  background-color: #EFE7BE;
+  outline: 0 none;
+}
+
+/* All the submit buttons */
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+    color: #EFE7BE  ;
+    background-color: #002635;
+    border-color: #002635;
+}
+.btn-outline-primary{
+  color: #002635;
+  border-color: #002635;
+}
+
+
+/* Alerts */
+.alert-danger{
+  background-color: #D97925;
+  color: #EFE7BE;
+}
+
+/* WEBSITE LOGO */
+.site-logo{
+  width: 60px;
+  height: 60px;
+  margin-bottom: -60px;
+  margin-left: -80px;
+
+}

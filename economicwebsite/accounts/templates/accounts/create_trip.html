@@ -3,17 +3,16 @@
 
 {% block content %}
 	
-	<div align="center">
-		<h1 class="display-4">Create a Trip</h1>
-
-		<p class="info">You can see how to correctly create a trip on the <strong>HOME</strong> page.</p>
-		<small class="info">The form is not case sensitive</small>
-
-		<form action="" method="POST">
-			{% csrf_token %}
-			{% bootstrap_form form %}
-			<button type="submit" class="btn btn-outline-secondary btn-lg">Create</button>
-		</form>
-	</div>
 	
+
+	<section>
+		<a href="{% url 'accounts:non_international' %}" class="altbtn">
+			<span class="altbtn-content"><h4 class="display-4">Local</h4></span>
+			<span class="icon"><i class="fa fa-car" aria-hidden="true"></i></span>
+		<a href="{% url 'accounts:international' %}" class="altbtn">
+			<span class="altbtn-content"><h4 class="display-4">International</h4></span>
+			<span class="icon"><i class="fa fa-globe" aria-hidden="true"></i></span>
+		</a>
+	</section>
+
 {% endblock content %}

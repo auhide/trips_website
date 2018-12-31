@@ -1,3 +1,5 @@
+
+// Responsive Navbar
 $(document).ready(function(){
 
 	var val = 1;
@@ -28,7 +30,5 @@ $(document).ready(function(){
   	$(this).children('.children').slideToggle();
   })
 
-
-
-
 });
+

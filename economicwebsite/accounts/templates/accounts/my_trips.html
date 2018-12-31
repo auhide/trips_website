@@ -7,30 +7,104 @@
 
 	<div align="center">
 
-		{% for trip in trips %}
-			<div id="tripcontainer">
-				<div class="pin1"></div>
-				<br>
-				<br>
-				<p id="triptext"><strong>Country</strong>: {{ trip.country|title }}</p>
-				<p id="triptext"><strong>Trip</strong>: {{ trip.town_1|title }} - {{ trip.town_2|title }}</p>
-				<p id="triptext"><strong>Costs</strong>: {{ trip.money }}€</p>
-				<p id="triptext"><strong>Time</strong>: {{ trip.time }}</p>
-				<p id="triptext"><strong>Distance</strong>: {{ trip.distance }}km</p>
-				<form action="{% url 'accounts:delete_trip' trip.id %}" method="POST">
-					{% csrf_token %}
-					<button class="garbagebtn"><i class="fa fa-close"></i></button>
-				</form>
-				<p id="tripdate">{{ trip.date }}</p>
-			</div>
+		{% if messages %}
+			{% for message in messages %}
+				<div class="alert alert-danger" role="alert">
+		            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		            <strong class="info">{{ message }}</strong>
+				    {{ messages.pop.0 }}
+		        </div>
+			{% endfor %}
+		{% endif %}
 
-		{% empty %}
-			<h3>Your list of trips is empty!</h3>
-			<h5>Go to the CREATE A TRIP tab if you feel adventurous!</h5>
-		{% endfor %}
+		<div class="accordion" id="accordionExample">
+		  <div class="card">
+		    <div class="card-header" id="headingOne">
+		      <h2 class="mb-0">
+		        <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		          Local
+		        </button>
+		      </h2>
+		    </div>
 
-		<!-- Pagination -->
-		{% if is_paginated %}
+		    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+		      <div class="card-body">
+		        
+		        {% for trip in trips %}
+					<br>
+					<div class="triplate">
+						<div class="pin1"></div>
+						<br>
+						<p class="triplate-content" id="triptext"><strong>Country:</strong> {{ trip.country|title }}</p>
+						<p class="triplate-content" id="triptext"><strong>Trip:</strong> {{ trip.From|title }} - {{ trip.to|title }}</p>
+						<p class="triplate-content" id="triptext"><strong>Costs:</strong> {{ trip.money }}€</p>
+						<p class="triplate-content" id="triptext"><strong>Time:</strong> {% if trip.time|slice:"0:1" == "0" %}
+							{{ trip.time|slice:"1:2" }}h {% else %} {{ trip.time|slice:":2" }}h {% endif %}  
+						{{ trip.time|slice:"3:5" }}m </p>
+						<p class="triplate-content" id="triptext"><strong>Distance:</strong> {{ trip.distance }}km</p>
+						<br>
+						<p class="triplate-content" id="triptext">{{ trip.date|date:"d | M | Y | g:iA" }}</p>
+						<form action="{% url 'accounts:delete_trip' trip.id %}" method="POST">
+							{% csrf_token %}
+							<button class="delbtn"><i class="fa fa-close"></i></button>
+						</form>
+						<br>
+					</div>
+					<hr class="menu">
+				{% empty %}
+					<h3>Your list of local trips is empty!</h3>
+					<h5>Go to the CREATE A TRIP tab if you feel locally adventurous!</h5>
+				{% endfor %}
+
+		      </div>
+		    </div>
+		  </div>
+		  <div class="card">
+		    <div class="card-header" id="headingTwo">
+		      <h2 class="mb-0">
+		        <button class="btn btn-outline-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		          International
+		        </button>
+		      </h2>
+		    </div>
+		    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+		      <div class="card-body">
+		        
+		        {% for trip in international_trips %}
+					<br>
+					<div class="triplate">
+						<div class="pin1"></div>
+						<br>
+						<p class="triplate-content" id="triptext"><strong>Countries:</strong> {{ trip.first_country|title }} - {{ trip.second_country|title }}</p>
+						<p class="triplate-content" id="triptext"><strong>Trip:</strong> {{ trip.From|title }} - {{ trip.to|title }}</p>
+						<p class="triplate-content" id="triptext"><strong>Costs:</strong> {{ trip.money }}€</p>
+						<p class="triplate-content" id="triptext"><strong>Time:</strong> {% if trip.time|slice:"0:1" == "0" %}
+							{{ trip.time|slice:"1:2" }}h 
+							{% else %}
+							{{ trip.time|slice:":2" }}h 
+							{% endif %}  
+						{{ trip.time|slice:"3:5" }}m </p>
+						<p class="triplate-content" id="triptext"><strong>Distance:</strong> {{ trip.distance }}km</p>
+						<br>
+						<p class="triplate-content" id="triptext">{{ trip.date|date:"d | M | Y | g:iA" }}</p>
+
+						<form action="{% url 'accounts:delete_inttrip' trip.id %}" method="POST">
+							{% csrf_token %}
+							<button class="delbtn"><i class="fa fa-close"></i></button>
+						</form>
+						<br>
+					</div>
+					<hr class="menu">
+				{% empty %}
+					<h3>Your list of international trips is empty!</h3>
+					<h5>Go to the CREATE A TRIP tab if you feel internationally adventurous!</h5>
+				{% endfor %}
+		      </div>
+		    </div>
+		  </div>		
+
+		 <!-- Pagination -->
+		<!--{% if is_paginated %}
 			<div class="pagination">
 				<span class="page-links">
 					<span class="page-current">
@@ -40,7 +114,19 @@
 					</span>
 				</span>
 			</div>
-		{% endif %}			
+		{% endif %}			 -->
+
+	<!--<br>
+	<div class="triplate">
+		<div class="pin1"></div>
+		<br>
+		<p class="triplate-content" id="triptext"><strong>Countries</strong> {{ trip.first_country|title }} - {{ trip.second_country|title }}</p>
+		<p class="triplate-content" id="triptext"><strong>Trip</strong>: {{ trip.From|title }} - {{ trip.to|title }}</p>
+		<p class="triplate-content" id="triptext"><strong>Costs</strong>: {{ trip.money }}€</p>
+		<p class="triplate-content" id="triptext"><strong>Time</strong>: {{ trip.time }}</p>
+		<p class="triplate-content" id="triptext"><strong>Distance</strong>: {{ trip.distance }}km</p>
+	</div>-->
 	</div>
+
 	
 {% endblock content %}
