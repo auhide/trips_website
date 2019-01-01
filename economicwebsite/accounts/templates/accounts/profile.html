@@ -5,12 +5,13 @@
 {% block page_title %}Profile{% endblock page_title %}
 
 {% block content %}
-	
+	<hr class="menu">
 	<div align='center'>{% avatar user 100 class="img-oval img-responsive" %}</div>
 	<h1 class='display-4 page_header' align='center'>{{ user.username }}</h1>
 	<p class='info' align='center'>Email: {{ user.email }}</p>
 	<br>
 	<div align='center'><a class="btn btn-outline-primary" href="{% url 'avatar_change' %}">Change avatar</a></div>
+	<hr class="menu">
 
 	<br>
 	<div align="center">

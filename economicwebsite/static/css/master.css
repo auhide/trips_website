@@ -1,13 +1,19 @@
-/* Colors: 
-    BLUE-ish -   #002635  
-    WHITE-ish -  #EFE7BE
-    RED-ish -    #AB1A25
-    ORANGE-ish - #D97925
+/* 
+Color Scheme: 
+  BLUE-ish -   #002635  
+  WHITE-ish -  #EFE7BE
+  RED-ish -    #AB1A25
+  ORANGE-ish - #D97925
 */
 
 
 body{
 	background-color: #EFE7BE;
+}
+
+.letter-t{
+  font-family: 'Monoton', cursive;
+  color: #AB1A25;
 }
 
 /* FOR THE MY TRIPS ACCORDION */
@@ -252,6 +258,14 @@ header nav ul li .fa-angle-down {
 
   body { padding-top: 80px; }
 
+  .img-circle{
+    display: none;
+  }
+
+  .site-logo{
+    display: none;
+  }
+
   .nav-bar {
     display: block;
     width: 100%;
@@ -269,7 +283,7 @@ header nav ul li .fa-angle-down {
 
   .nav-bar .fa-bars {
     display: block;
-    padding: 20px;
+    padding: 30px;
     color: #EFE7BE;
     overflow: hidden;
     font-size: 20px;
@@ -451,9 +465,15 @@ a:hover, a:focus, a:active {
   overflow: hidden;
   padding: 20px 0px 0px 0px;
   position: relative;
+  transition: transform .2s;
   text-decoration: none;
   line-height: 1;
 }
+
+.triplate:hover{
+  transform: scale(1.15);
+}
+
 .triplate .triplate-content {
   font-size: 1em;
   line-height: 1.2;
@@ -517,11 +537,11 @@ a:hover, a:focus, a:active {
   background-color: #EFE7BE;
 }
 
-.form-control::-webkit-input-placeholder { color: #002635; }  /* WebKit, Blink, Edge */
-.form-control:-moz-placeholder { color: #002635; }  /* Mozilla Firefox 4 to 18 */
-.form-control::-moz-placeholder { color: #002635; }  /* Mozilla Firefox 19+ */
-.form-control:-ms-input-placeholder { color: #002635; }  /* Internet Explorer 10-11 */
-.form-control::-ms-input-placeholder { color: #002635; }  /* Microsoft Edge */
+.form-control::-webkit-input-placeholder { color: #002635; opacity: 0.5; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: #002635; opacity: 0.5; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: #002635; opacity: 0.5; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: #002635; opacity: 0.5; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: #002635; opacity: 0.5; }  /* Microsoft Edge */
 
 .form-control{
   border-color: #002635;
@@ -569,9 +589,15 @@ input[type="color"]:focus,
 
 /* WEBSITE LOGO */
 .site-logo{
-  width: 60px;
+  width: 40px;
   height: 60px;
   margin-bottom: -60px;
   margin-left: -80px;
 
+}
+
+.site-logo-small{
+  width: 40px;
+  height: 60px;
+  margin-top: -15px;
 }

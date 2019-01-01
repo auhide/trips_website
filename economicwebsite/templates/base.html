@@ -24,13 +24,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Small text font -->
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+    <!-- The font of the "T" of the Logo of the website -->
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">  
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-    <!-- Sweet Alert -->
-    <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 
 
 </head>
@@ -110,7 +110,7 @@
     <header>
         <!-- responsive nav bar -->
         <div class="nav-bar">
-            <a href=""><i class="fa fa-bars"></i><span class="info">MENU</span></a>
+            <a href=""><i class="fa fa-bars"></i><span class="info"><img class="site-logo-small" src="{% static 'trip_images/logo.png' %}"></span></a>
         </div>
         <!-- navigation -->
         <nav>
@@ -119,15 +119,15 @@
                     <div><a href="{% url 'accounts:profile' user.username %}">{% avatar user 50 class="img-circle img-responsive focus pic" %}</a></div>
                 {% endif %}
                 <div><a href="{% url 'home' %}"><img class="site-logo" src="{% static 'trip_images/logo.png' %}"></a></div>
-                <li class="menupart" {% if request.path == '/' %} class="menupart active"{% endif %} ><a href="{% url 'home' %}"><i class="fa fa-home"></i> <strong>HOME</strong></a></li>
+                <li {% if request.path == '/' %} class="active"{% endif %} ><a href="{% url 'home' %}"><i class="fa fa-home"></i> <strong>HOME</strong></a></li>
                 {% if user.is_authenticated %}
-                    <li class="menupart" {% if "/account/create_trip/" in request.path %} class="menupart active"{% endif %} ><a href="{% url 'accounts:create_trip' %}"><i class="fa fa-car"></i> <strong>CREATE A TRIP</strong></a></li>
-                    <li class="menupart" {% if "/account/my_trips/" in request.path %} class="menupart active"{% endif %} ><a href="{% url 'accounts:my_trips' %}"><i class="fa fa-list-alt"></i> <strong>MY TRIPS</strong></a></li>
-                    <li class="menupart" {% if "/account/profile/" in request.path %} class="menupart active"{% endif %} ><a href="{% url 'accounts:profile' user.username %}"><i class="fa fa-user"></i>  <strong>{{ user.username|upper }}</strong></a></li>
+                    <li {% if "/account/create_trip/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:create_trip' %}"><i class="fa fa-car"></i> <strong>CREATE A TRIP</strong></a></li>
+                    <li {% if "/account/my_trips/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:my_trips' %}"><i class="fa fa-list-alt"></i> <strong>MY TRIPS</strong></a></li>
+                    <!-- <li {% if "/account/profile/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:profile' user.username %}"><i class="fa fa-user"></i>  <strong>{{ user.username|upper }}</strong></a></li> -->
                     <li><a href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out"></i> <strong>LOGOUT</strong></a></li>
                 {% else %}
-                    <li class="menupart" {% if request.path == "/account/login/" %} class="menupart active"{% endif %} ><a href="{% url 'accounts:login' %}"><i class="fa fa-arrow-right"></i> <strong>LOGIN</strong></a></li>
-                    <li class="menupart" {% if request.path == "/account/signup/" %} class="menupart active last"{% endif %} class="last"><a href="{% url 'accounts:signup' %}"><i class="fa fa-pencil"></i> <strong>SIGN UP</strong></a></li>
+                    <li {% if request.path == "/account/login/" %} class="active"{% endif %} ><a href="{% url 'accounts:login' %}"><i class="fa fa-arrow-right"></i> <strong>LOGIN</strong></a></li>
+                    <li {% if request.path == "/account/signup/" %} class="active last"{% endif %} class="last"><a href="{% url 'accounts:signup' %}"><i class="fa fa-pencil"></i> <strong>SIGN UP</strong></a></li>
                 {% endif %}
             </ul>
         </nav> <!-- navigation end -->
