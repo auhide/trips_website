@@ -17,13 +17,16 @@ body{
 }
 
 /* FOR THE MY TRIPS ACCORDION */
+.card{
+  border: none;
+}
 .card-header {
     background-color: #EFE7BE;
+    border: none;
 }
 
 .card-body{
   background-color: #EFE7BE;
-}
 }
 
 .pagination {

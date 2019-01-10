@@ -8,6 +8,8 @@ from django.core.exceptions import ValidationError
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 
+from django.contrib.auth import authenticate, login
+
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -24,10 +26,22 @@ key = "03cXzah4oYwdKkvyfkPeeatkbBn2z3LO"
 
 
 class SignUp(CreateView):
+    '''
+    SignUp view that uses the UserCreateForm that I've created.
+    Logging in after registration success.
+    '''
 
     template_name = "accounts/signup.html"
-    success_url = reverse_lazy("thanks")
+    success_url = reverse_lazy("home")
     form_class = forms.UserCreateForm
+
+    # Login the user after Signing up
+    def form_valid(self, form):
+        valid = super().form_valid(form)
+        username, password = form.cleaned_data.get('username'), form.cleaned_data.get('password1')
+        new_user = authenticate(username=username, password=password)
+        login(self.request, new_user)
+        return valid
 
 
 class Profile(DetailView):
@@ -52,12 +66,13 @@ class TripList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['international_trips'] = InternationalTrip.objects.all()
+        context['international_trips'] = InternationalTrip.objects.filter(user=self.request.user)
         return context
 
 
 
 class ChooseTripTypeView(TemplateView):
+
     template_name = "accounts/create_trip.html"
 
 
@@ -74,6 +89,7 @@ class TripView(CreateView):
         context["non_international"] = context["form"]
 
         return context
+
 
     def form_valid(self, form):
         super().form_valid(form)
@@ -139,6 +155,7 @@ class InternationalTripView(CreateView):
 
             json_obj = req.json()
 
+            # Checking whether the API statuscode signals an error.
             if json_obj['info']['statuscode'] == 402:
                 form.add_error('__all__', "It is impossible to travel by a car from {} to {}".format(self.object.From.title(), self.object.to.title()))
                 return super().form_invalid(form)
@@ -182,7 +199,7 @@ class InternationalTripDelete(SuccessMessageMixin, DeleteView):
 
     model = InternationalTrip
     success_url = reverse_lazy('accounts:my_trips')
-    success_message = 'Your trip has been deleted successfully!'
+    success_message = 'Your international trip has been deleted successfully!'
 
     def delete(self, request, *args, **kwargs):
         messages.warning(self.request, self.success_message)

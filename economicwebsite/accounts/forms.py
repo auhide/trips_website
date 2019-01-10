@@ -11,6 +11,7 @@ alphanumeric = RegexValidator(r'^[0-9a-zA-Z_]*$', 'Only English alphabetic chara
 
 class UserCreateForm(UserCreationForm):
 
+    # Adding the validation to our username field.
     username = forms.CharField(min_length=5, validators=[alphanumeric])
 
     class Meta:
@@ -18,6 +19,11 @@ class UserCreateForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
+        '''
+        Removing help_text(s) that are being displayed by default
+        in the UserCreationForm (for a better look).
+        '''
+
         super().__init__(*args, **kwargs)
         
         self.fields['username'].help_text = None

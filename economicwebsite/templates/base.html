@@ -36,82 +36,12 @@
 </head>
 <body>
 
-
-    <!-- NAVBAR V1 -->
-    <!-- <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand" href="{% url 'home' %}">Site Name</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-          {% if user.is_authenticated %}
-            <a class="nav-item nav-link" href="{% url 'accounts:logout' %}">Logout</a>
-          {% else %}
-            <a class="nav-item nav-link" href="{% url 'accounts:login' %}">Login</a>
-            <a class="nav-item nav-link" href="{% url 'accounts:signup' %}">Sign Up</a>
-          {% endif %}
-        </div>
-      </div>
-    </nav> -->
-
-
-    <!-- NAVBAR V2 -->
-    <!-- <nav class="navbar navbar-dark navbar-expand-lg">
-      <a class="navbar-brand" href="{% url 'home' %}">Website Name</a>
-        <ul class="navbar-nav navbar-center">
-          <li class="nav-item ">
-            <a class="nav-link" href="{% url 'home' %}">Home</a>
-          </li>
-          {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
-            </li>
-          {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a>
-            </li>
-          {% endif %}
-        </ul>
-    </nav> -->
-
-    <!-- NAVBAR V3 -->
-    <!-- <div class='row'>
-            <div class='col-8'><h1 align='right' class='text' id='logo'>Website Logo</h1></div>
-            {% if user.is_authenticated %}
-                <div align='right' class='col-4'><a href="{% url 'accounts:profile' user.username %}">{% avatar user 50 class="img-circle img-responsive focus pic" %}</a></div>
-            {% endif %}
-
-    </div> -->
-
-    <!-- <hr class="menu"> -->
-    
-    <!-- <div id="cssmenu">
-        <ul>
-            <div align='center'>
-                <li {% if request.path == '/' %} class="active"{% endif %} ><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
-                {% if user.is_authenticated %}
-                    <li {% if "/account/create_trip/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:create_trip' %}"><i class="fa fa-car"></i> Create A Trip</a></li>
-                    <li {% if "/account/my_trips/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:my_trips' %}"><i class="fa fa-list-alt"></i> My Trips</a></li>
-                    <li {% if "/account/profile/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:profile' user.username %}"><i class="fa fa-user"></i>  {{ user.username }}</a></li>
-                    <li><a href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
-                {% else %}
-                    <li {% if request.path == "/account/login/" %} class="active"{% endif %} ><a href="{% url 'accounts:login' %}"><i class="fa fa-arrow-right"></i> Login</a></li>
-                    <li {% if request.path == "/account/signup/" %} class="active last"{% endif %} class="last"><a href="{% url 'accounts:signup' %}"><i class="fa fa-pencil"></i> Sign Up</a></li>
-                {% endif %}
-            </div>
-        </ul>
-    </div> -->
-
     <header>
         <!-- responsive nav bar -->
         <div class="nav-bar">
             <a href=""><i class="fa fa-bars"></i><span class="info"><img class="site-logo-small" src="{% static 'trip_images/logo.png' %}"></span></a>
         </div>
+        
         <!-- navigation -->
         <nav>
             <ul>
@@ -119,7 +49,7 @@
                     <div><a href="{% url 'accounts:profile' user.username %}">{% avatar user 50 class="img-circle img-responsive focus pic" %}</a></div>
                 {% endif %}
                 <div><a href="{% url 'home' %}"><img class="site-logo" src="{% static 'trip_images/logo.png' %}"></a></div>
-                <li {% if request.path == '/' %} class="active"{% endif %} ><a href="{% url 'home' %}"><i class="fa fa-home"></i> <strong>HOME</strong></a></li>
+                <li {% if request.path == '/' %} class="active" {% endif %} ><a href="{% url 'home' %}"><i class="fa fa-home"></i> <strong>HOME</strong></a></li>
                 {% if user.is_authenticated %}
                     <li {% if "/account/create_trip/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:create_trip' %}"><i class="fa fa-car"></i> <strong>CREATE A TRIP</strong></a></li>
                     <li {% if "/account/my_trips/" in request.path %} class="active"{% endif %} ><a href="{% url 'accounts:my_trips' %}"><i class="fa fa-list-alt"></i> <strong>MY TRIPS</strong></a></li>
